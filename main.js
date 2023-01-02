@@ -9,7 +9,7 @@ if (wachtwoord == null) {
 
 
 function login() {
-  var url = "https://script.google.com/macros/s/AKfycbz7xNNQZC_03Et5YyAMalw4bHBy-fsr_vLNJJMSci-XCLxSBc3tJBpu7MDVD7OpHIdAjA/exec?wachtwoord="+window.wachtwoord;
+  var url = "https://script.google.com/macros/s/AKfycbwJz1jIxfIgfe9XTODaX1MMcTlVwSGJb-H17b0wkTX-V3zeQEuqH-P65WNf70SJ4iLUnw/exec?wachtwoord="+window.wachtwoord;
   fetch(url)
     .then(response => {
   // indicates whether the response is successful (status code 200-299) or not
@@ -42,7 +42,7 @@ function delay(time) {
 
 function search() {
   var p = window.wachtwoord.toUpperCase();
-  var url = "https://script.google.com/macros/s/AKfycbw"+p[3]+"E0ExHs-s2aB8lmXEdNj"+p[4].toLowerCase()+"8e-lyDNDpT"+p[0]+"ScMAzm"+p[1]+"5JBo1RoPbGBonwRs9nRcARgG"+p[2].toLowerCase()+"GPQ/exec";
+  var url = "https://script.google.com/macros/s/AKfycbz8F"+p[0].toLowerCase()+"DompAr9Lic"+p[3]+p[6]+"K"+p[4]+"R0zbNN-DGbWK"+p[2]+"CPiYxd"+p[1]+"T6"+p[5]+"UxtJdt64eTWCX9_PdAI-B4OUXtg/exec"
   fetch(url)
     .then(response => {
   // indicates whether the response is successful (status code 200-299) or not
@@ -54,6 +54,7 @@ function search() {
     })
     .then(data => {
       window.gegevens = data;
+      console.log(data)
 
       //show_data(data, eenheid)
     })
@@ -192,7 +193,14 @@ async function display_calendar(year) {
 
 async function show1() {
   var today = new Date();
-  current_year = today.getFullYear();
+
+  var jaar = urlParams.get('jaar')
+  if (jaar == null) {
+    var current_year = today.getFullYear();
+  }
+  else {
+    var current_year = jaar;
+  }
 
   search();
 

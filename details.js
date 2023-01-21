@@ -672,88 +672,15 @@ function display() {
 
         for (var m=0;m<window.gegevens.data[window.date].Activiteiten.length;m++) {
           window["edit_btn"+ (m+1)] = document.getElementById('edit_btn'+(m+1));
+          window["edit_btn"+ (m+1)].value = +m+1;
           window["delete_btn"+ (m+1)] = document.getElementById('delete_btn'+(m+1));
-        }
+          window["delete_btn"+ (m+1)].value = +m+1;
 
-
-        if (window.gegevens.data[window.date].Activiteiten.length>0) {
-          edit_btn1.addEventListener('click', function() {
-            create_nota3(1);
+          window["edit_btn"+ (m+1)].addEventListener('click', function() {
+            create_nota3(this.value);
           }, false);
-          delete_btn1.addEventListener('click', function() {
-            delete_nota(1);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>1) {
-          edit_btn2.addEventListener('click', function() {
-            create_nota3(2);
-          }, false);
-          delete_btn2.addEventListener('click', function() {
-            delete_nota(2);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>2) {
-          edit_btn3.addEventListener('click', function() {
-            create_nota3(3);
-          }, false);
-          delete_btn3.addEventListener('click', function() {
-            delete_nota(3);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>3) {
-          edit_btn4.addEventListener('click', function() {
-            create_nota3(4);
-          }, false);
-          delete_btn4.addEventListener('click', function() {
-            delete_nota(4);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>4) {
-          edit_btn5.addEventListener('click', function() {
-            create_nota3(5);
-          }, false);
-          delete_btn5.addEventListener('click', function() {
-            delete_nota(5);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>5) {
-          edit_btn6.addEventListener('click', function() {
-            create_nota3(6);
-          }, false);
-          delete_btn6.addEventListener('click', function() {
-            delete_nota(6);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>6) {
-          edit_btn7.addEventListener('click', function() {
-            create_nota3(7);
-          }, false);
-          delete_btn7.addEventListener('click', function() {
-            delete_nota(7);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>7) {
-          edit_btn8.addEventListener('click', function() {
-            create_nota3(8);
-          }, false);
-          delete_btn8.addEventListener('click', function() {
-            delete_nota(8);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>8) {
-          edit_btn9.addEventListener('click', function() {
-            create_nota3(9);
-          }, false);
-          delete_btn9.addEventListener('click', function() {
-            delete_nota(9);
-          }, false);
-        }
-        if (window.gegevens.data[window.date].Activiteiten.length>9) {
-          edit_btn10.addEventListener('click', function() {
-            create_nota3(10);
-          }, false);
-          delete_btn10.addEventListener('click', function() {
-            delete_nota(10);
+          window["delete_btn"+ (m+1)].addEventListener('click', function() {
+            delete_nota(this.value);
           }, false);
         }
       }
@@ -769,7 +696,7 @@ function display() {
   var witregel = document.createElement("br");
   document.body.appendChild(witregel);
 
-  if (activities_num < 10) {
+  if (activities_num < 20) {
     var btn = document.createElement("a");
     btn.innerHTML = "Activiteit toevoegen";
     btn.classList.toggle('btn');
